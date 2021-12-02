@@ -1,0 +1,158 @@
+    $light: #F2F2F2;
+    $light-gray: #8C8C8C;
+    $light-red: #A61F2B;
+    $accent-red: #A60303;
+    $accent-black: #0D0D0D;
+    @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1+Code:wght@300;400;700&display=swap');
+    * {
+        box-sizing: border-box;
+    }
+    
+    .App {
+        text-align: center;
+        font-family: 'M PLUS 1 Code', sans-serif;
+        .App-header {
+            background-color: $light;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: calc(10px + 2vmin);
+            color: $accent-black;
+            #drum-machine {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px;
+                width: 55vw;
+                background-color: $light-gray;
+                border: 1vmin solid $light-red;
+                @media (max-width: 600px) {
+                    flex-wrap: wrap;
+                    width: 80vw;
+                    text-align: center;
+                }
+                .flex-container {
+                    width: 26vw;
+                    height: 40vh;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    align-content: space-between;
+                    @media (max-width: 600px) {
+                        width: 60vw;
+                        height: 60wh;
+                    }
+                    .drum-pad {
+                        width: 8vw;
+                        height: 10vh;
+                        padding-top: 2vmin;
+                        background-color: $light;
+                        color: $accent-red;
+                        border-radius: 5px;
+                        border: solid 2px $accent-red;
+                        box-shadow: 4px 4px 5px $accent-black;
+                        @media (max-width: 600px) {
+                            width: 18vw;
+                            height: 10vh;
+                            padding-top: 3vmin;
+                            font-size: calc(10px + 4vmin);
+                        }
+                    }
+                    .drum-pad:active {
+                        color: $light;
+                        background-color: $light-red;
+                        padding-top: calc(2vmin - 8px);
+                        border: solid 10px $accent-black;
+                        box-shadow: none;
+                        @media (max-width: 600px) {
+                            padding-top: calc(5vmin - 8px);
+                        }
+                    }
+                }
+                .controllers {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    padding: 0 auto;
+                    width: 20vw;
+                    height: 20vh;
+                    margin-top: auto;
+                    margin-bottom: auto;
+                    @media (max-width: 600px) {
+                        width: 55vw;
+                        margin-top: 5vh;
+                    }
+                    .toggle {
+                        width: 40vw;
+                        .switch {
+                            position: relative;
+                            display: inline-block;
+                            width: 60px;
+                            height: 34px;
+                        }
+                        /* Hide default HTML checkbox */
+                        .switch input {
+                            opacity: 0;
+                            width: 0;
+                            height: 0;
+                        }
+                        /* The slider */
+                        .slider {
+                            position: absolute;
+                            cursor: pointer;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            background-color: #ccc;
+                            -webkit-transition: .4s;
+                            transition: .4s;
+                        }
+                        .slider:before {
+                            position: absolute;
+                            content: "";
+                            height: 26px;
+                            width: 26px;
+                            left: 4px;
+                            bottom: 4px;
+                            background-color: white;
+                            -webkit-transition: .4s;
+                            transition: .4s;
+                        }
+                        input:checked+.slider {
+                            background-color: $light-red;
+                        }
+                        input:focus+.slider {
+                            box-shadow: 0 0 5px $accent-black;
+                        }
+                        input:checked+.slider:before {
+                            -webkit-transform: translateX(26px);
+                            -ms-transform: translateX(26px);
+                            transform: translateX(26px);
+                        }
+                        /* Rounded sliders */
+                        .slider.round {
+                            border-radius: 34px;
+                        }
+                        .slider.round:before {
+                            border-radius: 50%;
+                        }
+                    }
+                    #display {
+                        width: 14vw;
+                        height: 7vh;
+                        margin-top: auto;
+                        padding-top: 10px;
+                        background-color: $light-red;
+                        font-size: calc(10px + 1.5vmin);
+                        @media (max-width: 600px) {
+                            width: 25vw;
+                            font-size: calc(10px + 2vmin);
+                        }
+                    }
+                }
+            }
+        }
+    }

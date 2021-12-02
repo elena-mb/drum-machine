@@ -83,6 +83,8 @@
                     @media (max-width: 600px) {
                         width: 55vw;
                         margin-top: 5vh;
+                        margin-right: auto;
+                        margin-left: auto;
                     }
                     .toggle {
                         width: 40vw;
@@ -148,7 +150,7 @@
                         background-color: $light-red;
                         font-size: calc(10px + 1.5vmin);
                         @media (max-width: 600px) {
-                            width: 25vw;
+                            width: 45vw;
                             font-size: calc(10px + 2vmin);
                         }
                     }
